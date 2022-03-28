@@ -11,8 +11,7 @@ gem 'rails', github: 'rails/rails', branch: '7-0-stable'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-#Mongo DB/ID as the database.
-gem 'mongoid', '~> 7.3', '>= 7.3.4'
+#Mongo DB/ID as the database. (MongoID coming early 2022)
 
 # Audit the Bundle  [https://www.rubydoc.info/gems/bundle-audit/0.1.0]  bundle audit --update bundle audit
 gem 'bundle-audit'

@@ -12,8 +12,8 @@ development:
       database: jumpstart_db
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      hosts: mongodb://anton:amex26@localhost/jumpstart_db
+    
       options:
         # Note that all options listed below are Ruby driver client options (the mongo gem).
         # Please refer to the driver documentation of the version of the mongo gem you are using
@@ -30,13 +30,16 @@ development:
         #   mode: :secondary_preferred
         #   tag_sets:
         #     - use: web
-
         # The name of the user for authentication.
-        user: 'anton'
-        auth_mech: :scram
-        # The password of the user for authentication.
-        password: 'amex26'
-
+        #user: <%= ENV['MONGO_USER'] %>
+        #password: <%= ENV['MONGO_PASS'] %>
+        auth_mech: :mongodb_cr
+        # The database or source to authenticate the user against.
+        # (default: the database specified above or admin)
+        auth_source: <%= ENV['MONGO_AUTHSOURCE'] %>
+        salt: <%= ENV['MONGO_SALT'] %>
+        stored_key: <%= ENV['MONGO_STKEY'] %>
+        serverKey: <%= ENV['MONGO_SERVKEY'] %>
         # The user's database roles.
         roles:
           - 'userAdminAnyDatabase'
